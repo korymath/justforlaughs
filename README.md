@@ -24,7 +24,11 @@ env DYLD_LIBRARY_PATH="/opt/homebrew/lib:$DYLD_LIBRARY_PATH" python app.py
 
 ## Credits
 
-Based on:
+Laughter detection model from:
+
+* https://github.com/jrgillick/laughter-detection
+
+Audio interface and recording based on:
 
 * https://github.com/mattdiamond/Recorderjs
 * https://github.com/addpipe/simple-recorderjs-demo

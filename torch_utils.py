@@ -106,7 +106,7 @@ def load_checkpoint(checkpoint, model, optimizer=None):
 		raise ("File doesn't exist {}".format(checkpoint))
 	else:
 		print("Loading checkpoint at:", checkpoint)
-	checkpoint = torch.load(checkpoint)
+	checkpoint = torch.load(checkpoint, map_location=torch.device('cpu'))
 	model.load_state_dict(checkpoint['state_dict'])
 
 	if optimizer:
@@ -302,12 +302,12 @@ def run_epoch(model, mode, device, loss_type='x_ent', optimizer=None, clip=1,
 		val_batches_per_log = int(val_batches_per_epoch / log_frequency)
 		val_itr = iter(val_iterator)
 
-	if mode is 'train':
+	if mode == 'train':
 		if optimizer is None:
 			raise Exception("Must pass Optimizer in train mode")
 		model.train()
 		_run_batch = _train_batch
-	elif mode is 'eval':
+	elif mode == 'eval':
 		model.eval()
 		_run_batch = _eval_batch
 
