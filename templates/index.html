@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Suggestions</title>
+    <meta name="description" content="A cool thing">
+    <link id="favicon" rel="icon" href="https://gomix.com/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            A Dream of the Future
+        </h1>
+    </header>
+
+    <main>
+
+        <p class="bold">Oh hi,</p>
+
+        <p>Tell me your hopes and dreams:</p>
+
+        <form>
+            <input type="text" id="form_input"></input>
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="place_for_suggestions">
+            <!-- This is here suggestions will go. -->
+        </div>
+
+    </main>
+
+    <footer>
+        <a href="#">
+            Made by Kory
+        </a>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("form").submit(function (event) {
+                var text = $("#form_input").val();
+                console.log(text);
+
+                $.ajax({
+                    url: "/suggestions",
+                    type: "get",
+                    data: { jsdata: text },
+                    success: function (response) {
+                        $("#place_for_suggestions").html(response);
+                    },
+                    error: function (xhr) {
+                        conosole.log('Error getting back suggestions.')
+                    }
+                });
+                event.preventDefault();
+            });
+        });
+    </script>
+
+</body>
+
+</html>
