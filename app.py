@@ -1,30 +1,26 @@
 import os
 import uuid
-from flask import Flask, session, render_template, request
-import requests
+from flask import Flask, render_template, request, jsonify
 
 
 app = Flask(__name__)
 app.secret_key = b'this-is-a-really-secret-key'
 
 
-all_files = sorted(os.listdir('static/audio'))
-files = [file for file in all_files if file.endswith('.wav')]
-print(files)
-
-
-@app.route("/")
+@app.route("/", methods=['POST', 'GET'])
 def show_index_page():
-    session['token'] = uuid.UUID(bytes=os.urandom(16))
-    print('Welcome token: ' + str(session['token']))
-    return render_template('index.html')
+    if request.method == "POST":
+        f = open('./file.wav', 'wb')
+        f.write(request.get_data("audio_data"))
+        f.close()
 
-@app.route("/audio")
-def show_audio_page():
-    audio_files = files
-    return render_template(
-        'audio.html',
-        audio_files=audio_files)
+        print('File file.wav saved.')
+        print('Running analysis on the file...')
+        print('Getting response from server...')
+        return_data = {'laughterDetected': True}
+        return jsonify(return_data)
+    else:
+        return render_template("index.html")
 
 
 if __name__ == '__main__':

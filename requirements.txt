@@ -13,3 +13,9 @@ urllib3==1.26.9
 uuid==1.30
 Werkzeug==2.1.2
 zipp==3.8.0
+librosa
+torch
+tgt
+pyloudnorm
+praatio
+tensorboardX
