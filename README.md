@@ -5,13 +5,23 @@
 ```sh
 
 pip install --upgrade pip
-pip install flask requests gunicorn uuid
+pip install -r requirements.txt
 ```
 
 ## Run
 
 ```sh
+# Run the web app
 python app.py
+
+# Run the standalone laughter detector
+python segment_laughter.py --input_audio_file example_audio.wav
+
+# It should output that it found 1 laugh in the example, save just the laugh cropped from the input, and the time window when laugh happened.
+
+# Example:
+# found 1 laughs.
+# [{'filename': 'output/laugh_0.wav', 'start': 2.6453333333333333, 'end': 5.261913043478261}]
 ```
 
 ## Fixes
