@@ -1,26 +1,27 @@
-import os
-import sys
-import pickle
-import time
-import librosa
 import argparse
-import torch
+import os
+import pickle
+import sys
+import time
+from distutils.util import strtobool
+from functools import partial
+
+import librosa
 import numpy as np
 import pandas as pd
 import scipy
-from tqdm import tqdm
 import tgt
+import torch
+from torch import nn, optim
+from tqdm import tqdm
+
+import audio_utils
+import configs
+import data_loaders
+import dataset_utils
 import laugh_segmenter
 import models
-import configs
-import dataset_utils
-import audio_utils
-import data_loaders
 import torch_utils
-from tqdm import tqdm
-from torch import optim, nn
-from functools import partial
-from distutils.util import strtobool
 
 sample_rate = 8000
 
@@ -64,7 +65,6 @@ else:
 
 if __name__ == '__main__':
     # Load the audio file and features
-
     inference_dataset = data_loaders.SwitchBoardLaughterInferenceDataset(
         audio_path=audio_path, feature_fn=feature_fn, sr=sample_rate)
 
@@ -72,7 +72,9 @@ if __name__ == '__main__':
                          expand_channel_dim=config['expand_channel_dim'])
 
     inference_generator = torch.utils.data.DataLoader(
-        inference_dataset, num_workers=4, batch_size=8, shuffle=False, collate_fn=collate_fn)
+        inference_dataset, num_workers=2, 
+        batch_size=16, shuffle=False, 
+        collate_fn=collate_fn)
 
     # Make Predictions
 

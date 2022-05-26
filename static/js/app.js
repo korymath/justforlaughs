@@ -152,7 +152,10 @@ function createDownloadLink(blob) {
         xhr.onload = function (e) {
             if (this.readyState === 4) {
                 var result = JSON.parse(e.target.responseText);
-                console.log("Laughter Detected: ", result.laughterDetected);
+                console.log("Laughter Detected: ", result);
+                li.appendChild(document.createTextNode(" "))//add a space in between
+                var textnode = document.createTextNode(`Laughter detected: ${result.laughterDetected}`);
+                li.appendChild(textnode);
             }
         };
         var fd = new FormData();
