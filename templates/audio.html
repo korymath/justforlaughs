@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Audio Example</title>
+</head>
+
+<body>
+    <h2>Funny Code Audio Files</h2>
+    <p>Click on play icon to play</p>
+    {% for file in audio_files %}
+    <audio controls>
+        <source src={{ url_for('static', filename=file) }} type="audio/mpeg">
+    </audio>
+    {% endfor %}
+</body>
+
+</html>

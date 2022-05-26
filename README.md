@@ -5,7 +5,7 @@
 ```sh
 
 pip install --upgrade pip
-pip install flask requests
+pip install flask requests gunicorn uuid
 ```
 
 ## Run
