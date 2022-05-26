@@ -15,7 +15,8 @@ COPY . ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Install sndfile library
-RUN sudo apt-get install libsndfile1
+RUN apt update
+RUN apt-get -y install libsndfile1
 
 # Run the web service on container startup. Here we use the gunicorn
 # webserver, with one worker process and 8 threads.
