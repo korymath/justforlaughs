@@ -104,12 +104,19 @@ def show_index_page():
 
         print('Running analysis on the file...')
         instances_of_laughter = run_laughter_detection(audio_path='./file.wav')
-        print()
+        
+        print(instances_of_laughter)
         print("found %d laughs." % (len(instances_of_laughter)))
+        
         laughter_detected = False
         if len(instances_of_laughter) > 0:
             laughter_detected = True
-        return_data = {'laughterDetected': laughter_detected}
+        
+        return_data = {
+            'laughterDetected': laughter_detected,
+            'numberOfLaughs': len(instances_of_laughter),
+            'instances': instances_of_laughter
+        }
         return jsonify(return_data)
     else:
         return render_template("index.html")

@@ -154,7 +154,8 @@ function createDownloadLink(blob) {
                 var result = JSON.parse(e.target.responseText);
                 console.log("Laughter Detected: ", result);
                 li.appendChild(document.createTextNode(" "))//add a space in between
-                var textnode = document.createTextNode(`Laughter detected: ${result.laughterDetected}`);
+                var textnode = document.createTextNode(
+                    `Response: ${JSON.stringify(result, undefined, 2)}`);
                 li.appendChild(textnode);
             }
         };
