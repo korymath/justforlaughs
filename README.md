@@ -3,19 +3,25 @@
 ## Setup
 
 ```sh
+# Get the code
+git clone https://github.com/korymath/justforlaughs;
+cd justforlaughs/;
+python3 -m venv venv;
+source venv/bin/activate;
 
-pip install --upgrade pip
-pip install -r requirements.txt
+# Install requirements
+pip install --upgrade pip;
+pip install -r requirements.txt;
 ```
 
 ## Run
 
 ```sh
 # Run the web app
-python app.py
+python app.py;
 
 # Run the standalone laughter detector
-python segment_laughter.py --input_audio_file example_audio.wav
+python segment_laughter.py --input_audio_file example_audio.wav;
 
 # It should output that it found 1 laugh in the example, save just the laugh cropped from the input, and the time window when laugh happened.
 
