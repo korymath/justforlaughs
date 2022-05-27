@@ -16,7 +16,7 @@ var pauseButton = document.getElementById("pauseButton");
 //add events to those 2 buttons
 recordButton.addEventListener("click", startRecording);
 stopButton.addEventListener("click", stopRecording);
-pauseButton.addEventListener("click", pauseRecording);
+// pauseButton.addEventListener("click", pauseRecording);
 
 function startRecording() {
     console.log("recordButton clicked");
@@ -34,7 +34,7 @@ function startRecording() {
 
     recordButton.disabled = true;
     stopButton.disabled = false;
-    pauseButton.disabled = false
+    // pauseButton.disabled = false
 
     /*
         We're using the standard promise based getUserMedia() 
@@ -100,10 +100,10 @@ function stopRecording() {
     //disable the stop button, enable the record too allow for new recordings
     stopButton.disabled = true;
     recordButton.disabled = false;
-    pauseButton.disabled = true;
+    // pauseButton.disabled = true;
 
     //reset button just in case the recording is stopped while paused
-    pauseButton.innerHTML = "Pause";
+    // pauseButton.innerHTML = "Pause";
 
     //tell the recorder to stop the recording
     rec.stop();
@@ -158,7 +158,15 @@ function createDownloadLink(blob) {
                     `Response: ${JSON.stringify(result, undefined, 2)}`);
                 li.appendChild(textnode);
             }
-        };
+        };;
+
+        li.appendChild(document.createTextNode(" "))//add a space in between
+        var textnode = document.createTextNode(
+            "Now detecting laughter... Please be patient...");
+        console.log("Now detecting laughter... Please be patient...");
+        li.appendChild(textnode);
+        li.removeChild(upload);
+        
         var fd = new FormData();
         fd.append("audio_data", blob, filename);
         xhr.open("POST", "/", true);
