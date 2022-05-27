@@ -1,5 +1,7 @@
 # Just For Laughs
 
+<img src="https://user-images.githubusercontent.com/178099/170729568-57fec58a-4884-4250-b954-e77e3f3a108c.png" width="250">
+
 ## Setup
 
 ```sh
