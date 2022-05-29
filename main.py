@@ -94,7 +94,7 @@ def run_laughter_detection(audio_path):
 
 @app.route("/tfjs")
 def show_tfjs_page():
-    return render_template("ft.html")
+    return render_template("tfjs.html")
 
 
 @app.route("/ft")
