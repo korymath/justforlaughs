@@ -42,6 +42,10 @@ env DYLD_LIBRARY_PATH="/opt/homebrew/lib:$DYLD_LIBRARY_PATH" python app.py
 
 ## Credits
 
+Client-sider in-browser detection from:
+
+* https://github.com/tensorflow/tfjs-models/tree/master/speech-commands
+
 Laughter detection model from:
 
 * https://github.com/jrgillick/laughter-detection

@@ -92,6 +92,11 @@ def run_laughter_detection(audio_path):
     return instances
 
 
+@app.route("/tfjs")
+def show_tfjs_page():
+    return render_template("tfjs.html")
+
+
 @app.route("/", methods=['POST', 'GET'])
 def show_index_page():
     if request.method == "POST":
