@@ -44,14 +44,13 @@ env DYLD_LIBRARY_PATH="/opt/homebrew/lib:$DYLD_LIBRARY_PATH" python app.py
 
 Client-sider in-browser detection from:
 
-* https://github.com/tensorflow/tfjs-models/tree/master/speech-commands
+* https://github.com/tensorflow/tfjs-models/tree/master/speech-commands - [LICENSE](https://github.com/tensorflow/tfjs-models/blob/master/LICENSE)
 
 Laughter detection model from:
 
-* https://github.com/jrgillick/laughter-detection
+* https://github.com/jrgillick/laughter-detection - [LICENSE](https://github.com/jrgillick/laughter-detection/blob/master/LICENSE)
 
-Audio interface and recording based on:
+Audio interface and recording adapted from:
 
-* https://github.com/mattdiamond/Recorderjs
-* https://github.com/addpipe/simple-recorderjs-demo
-* https://blog.addpipe.com/using-recorder-js-to-capture-wav-audio-in-your-html5-web-site/
+* https://github.com/mattdiamond/Recorderjs - [LICENSE](https://github.com/mattdiamond/Recorderjs#license-mit)
+* https://github.com/addpipe/simple-recorderjs-demo - [No LICENSE](https://github.com/addpipe/simple-recorderjs-demo/issues/11), [Blog post](https://blog.addpipe.com/using-recorder-js-to-capture-wav-audio-in-your-html5-web-site/)
